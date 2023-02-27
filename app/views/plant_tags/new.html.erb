@@ -2,7 +2,7 @@
 <%# /plants/:plant_id/plant_tags %>
 <%# /plants/5387/plant_tags %>
   <%= simple_form_for [@plant, @plant_tag] do |f| %>
-    <%= f.input :tag, collection: Tag.all %>
+    <%= f.input :tag, collection: Tag.all, input_html: { multiple: true } %>
     <%= f.submit 'Add tag', class: 'btn btn-primary' %>
   <% end %>
 </div>

@@ -6,17 +6,12 @@ class PlantTagsController < ApplicationController
 
   def create
     @plant = Plant.find(params[:plant_id])
-    # from the form we receive the TAG ID
-    @tag = Tag.find(params[:plant_tag][:tag])
-    @plant_tag = PlantTag.new
-    @plant_tag.tag = @tag
-    # we are still missing the plant that this plant tag belongs to
-    @plant_tag.plant = @plant
-    if @plant_tag.save
-      redirect_to garden_path(@plant.garden)
-    else
-      render :new, status: :unprocessable_entity
+    @tags = Tag.where(id: params[:plant_tag][:tag])
+    @tags.each do |tag|
+      @plant_tag = PlantTag.new(plant: @plant, tag: tag)
+      @plant_tag.save
     end
+    redirect_to garden_path(@plant.garden)
   end
 
   private
