@@ -1,6 +1,4 @@
-Solution code of the Web Development bootcamp Gardens and Plants livecode.
-
-Each branch represents a snapshot of the codebase during this multi-step livecodes:
-- `day-one-exercise-one`: app creation, garden model scaffold and seed
-- `day-one-exercise-two`: plant model
-- `day-two`: tag model & JavaScript
+1. create the model - Tag
+2. create the model - PlantTag -  we'll use as join table
+3. Associations and Validations
+4. you MUST test crash
